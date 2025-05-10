@@ -5,6 +5,8 @@ function App() {
   return (
     <div className={style.container}>
       <Navbar />
+      <div className={style.top}>Personal tasks</div>
+      <div className={style.bottom}>Work Related</div>
     </div>
   );
 }

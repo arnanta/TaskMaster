@@ -1,36 +1,82 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import style from './Navbar.module.css';
 import { MenuIcon, AvatarIcon, DarkMode } from '@/assets/icons';
 import { useTheme } from '@/contexts/ThemeContext/ThemeContext';
+import Card from './Card/Card';
+import Form from './Form/Form';
+import { CardType } from './Card/types/CardTypes';
 const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [showCards, setShowCards] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const [showForm, setShowForm] = useState<boolean>(false);
+  const [cardData, setCardData] = useState<CardType>(null);
   const { toggleTheme } = useTheme();
+
   const toggleMenu = () => {
     setShowMenu((prev) => !prev);
   };
+  const handleCards = () => {
+    setShowCards(true);
+    setShowMenu(false);
+  };
 
+  const openTaskAddForm = () => {
+    setShowForm(true);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const newCardData = {
+      id: crypto.randomUUID(),
+      name: formData.get('name') as string,
+      content: formData.get('content') as string,
+      comments: formData.get('comments') as string,
+    };
+
+    setCardData(newCardData);
+    setShowForm(false);
+    setShowCards(true);
+  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
   return (
-    <nav className={style.container_div}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <div className={style.logo} onClick={toggleMenu}>
-          <MenuIcon />
+    <>
+      <nav className={style.container_div}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className={style.logo} onClick={toggleMenu}>
+            <MenuIcon />
+          </div>
+          {showMenu && (
+            <div ref={menuRef} className={style.menu}>
+              <ul>
+                <li onClick={handleCards}>My Cards</li>
+                <li>Due Assignments</li>
+                <li onClick={openTaskAddForm}>Add a task</li>
+              </ul>
+            </div>
+          )}
         </div>
-        {showMenu && (
-          <ul className={style.menu}>
-            <li>My Tasks</li>
-            <li>Due Assignments</li>
-            <li>Add a task</li>
-          </ul>
-        )}
-      </div>
-      <div className={style.avatar}>
-        <AvatarIcon />
+        <div className={style.avatar}>
+          <AvatarIcon />
 
-        <span onClick={toggleTheme}>
-          <DarkMode />
-        </span>
-      </div>
-    </nav>
+          <span onClick={toggleTheme}>
+            <DarkMode />
+          </span>
+        </div>
+      </nav>
+      <div>{showCards && <Card {...cardData} />}</div>
+      {showForm && <Form onSubmit={(event) => handleSubmit(event)} />}
+    </>
   );
 };
 

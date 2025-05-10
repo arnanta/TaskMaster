@@ -1,6 +1,6 @@
 .container_div {
   width: 100%;
-  background-color: green;
+  background-color: rgb(40, 44, 52);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,6 +50,7 @@
 .menu li {
   padding: 0.5rem 1rem;
   cursor: pointer;
+  list-style: none;
 }
 
 .menu li:hover {
