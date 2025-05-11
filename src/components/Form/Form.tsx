@@ -3,12 +3,25 @@ import React from 'react';
 import styles from './Form.module.css';
 
 type FormProps = {
-  onSubmit: (event) => void;
+  onSubmit: (event: React.FormEvent) => void;
 };
 
 const Form: React.FC<FormProps> = ({ onSubmit }) => {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
+      <div className={styles.formGroupRadioInput}>
+        <label>Task Type: </label>
+
+        <div className={styles.radioInput}>
+          <input type="radio" id="work" name="taskType" value="Work" />
+          <label htmlFor="work">Work</label>
+        </div>
+
+        <div className={styles.radioInput}>
+          <input type="radio" id="personal" name="taskType" value="Personal" />
+          <label htmlFor="personal">Personal</label>
+        </div>
+      </div>
       <div className={styles.formGroup}>
         <label htmlFor="name">Task Name</label>
         <input id="name" type="text" name="name" placeholder="Enter the Task Name" />

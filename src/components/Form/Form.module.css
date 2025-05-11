@@ -49,3 +49,15 @@ textarea:focus {
 .submitButton:hover {
   background-color: #0056b3;
 }
+
+.formGroupRadioInput {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.radioInput {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
