@@ -4,4 +4,5 @@ export type CardType = {
   content: string;
   dueDate?: any;
   comments?: string;
+  taskType: 'Work' | 'Personal';
 } | null;
