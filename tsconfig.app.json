@@ -25,12 +25,10 @@
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@header/*": ["src/Header/*"],
-      "@editor/*": ["src/Editor/*"],
-      "@explorer/*": ["src/Explorer/*"],
-      "@console/*": ["src/Console/*"],
       "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@store/*": ["src/store/*"],
     }
   },
   "include": ["src"]

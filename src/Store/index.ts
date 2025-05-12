@@ -12,9 +12,11 @@ import {
 import storage from 'redux-persist/lib/storage';
 import cardReducer from './Card/CardSlice';
 import { combineReducers } from 'redux';
+import authReducer from './Auth/AuthSlice';
 
 const rootReducer = combineReducers({
   card: cardReducer,
+  auth: authReducer,
 });
 
 const persistConfig = {

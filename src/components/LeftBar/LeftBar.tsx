@@ -6,6 +6,7 @@ import { addCard } from '@/Store/Card/CardSlice';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
 import { AvatarIcon } from '@/assets/icons';
+import { logout } from '@/Store/Auth/AuthSlice';
 
 type LeftBarProps = {
   menuRef: RefObject<HTMLDivElement | null>;
@@ -50,6 +51,7 @@ const LeftBar: React.FC<LeftBarProps> = ({ menuRef }) => {
         </ul>
         <div className={style.avatar}>
           <AvatarIcon />
+          <span onClick={() => dispatch(logout())}>Log Out</span>
         </div>
       </div>
 
