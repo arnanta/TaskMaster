@@ -9,8 +9,6 @@ const cardSlice = createSlice({
   reducers: {
     addCard: (state, action: PayloadAction<CardType>) => {
       state.push(action.payload);
-      console.log('🚀 ~ action.payload:', action.payload);
-      console.log(state);
     },
     editCard: (state, action: PayloadAction<CardType>) => {
       const index = state.findIndex((card) => card.id === action.payload.id);

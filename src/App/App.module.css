@@ -16,3 +16,10 @@
   /* background-color: #ffffff; */
   padding: 1rem;
 }
+
+.heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}

@@ -22,57 +22,6 @@ export const ChevronUp = () => (
   </svg>
 );
 
-export const SidebarHidden = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    height="24"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect x="5" y="4" width="6" height="16" strokeWidth="2" />
-    <rect x="13" y="4" width="6" height="16" strokeWidth="2" />
-  </svg>
-);
-
-export const SidebarVisible = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect x="3" y="4" width="8" height="16" fill="currentColor" stroke="currentColor" />
-    <rect x="13" y="4" width="8" height="16" fill="none" stroke="currentColor" />
-  </svg>
-);
-
-export const BottomSectionHidden = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-    <rect x="5" y="4" width="14" height="6" strokeWidth="2" />
-    <rect x="5" y="14" width="14" height="6" strokeWidth="2" />
-  </svg>
-);
-
-export const BottomSectionVisible = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-    <rect
-      x="5"
-      y="14"
-      width="14"
-      height="6"
-      strokeWidth="2"
-      fill="currentColor"
-      stroke="currentColor"
-    />
-    <rect x="5" y="4" width="14" height="6" strokeWidth="2" fill="none" stroke="currentColor" />
-  </svg>
-);
-
 export const NewFile = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +124,7 @@ export const DeleteIcon = () => (
     height="24px"
     viewBox="0 -960 960 960"
     width="24px"
-    fill="#e3e3e3"
+    fill="#14B8A6"
   >
     <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
   </svg>
@@ -228,14 +177,23 @@ export const DarkMode = () => (
     <path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z" />
   </svg>
 );
+
+export const EditIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="#14B8A6"
+  >
+    <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" />
+  </svg>
+);
+
 // Export all icons as named exports
 export default {
   ChevronDown,
   ChevronUp,
-  SidebarHidden,
-  SidebarVisible,
-  BottomSectionHidden,
-  BottomSectionVisible,
   NewFile,
   AddFile,
   Folder,
@@ -249,4 +207,5 @@ export default {
   MenuIcon,
   AvatarIcon,
   DarkMode,
+  EditIcon,
 };

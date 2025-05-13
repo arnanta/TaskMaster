@@ -1,28 +1,23 @@
-import React, { RefObject, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import style from './Leftbar.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/Store';
+import { useDispatch } from 'react-redux';
 import { addCard } from '@/Store/Card/CardSlice';
-import Card from '../Card/Card';
 import Form from '../Form/Form';
 import { AvatarIcon } from '@/assets/icons';
 import { logout } from '@/Store/Auth/AuthSlice';
 
 type LeftBarProps = {
-  menuRef: RefObject<HTMLDivElement | null>;
+  showMenu: boolean;
+  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const LeftBar: React.FC<LeftBarProps> = ({ menuRef }) => {
-  const [showCards, setShowCards] = useState<boolean>(false);
+const LeftBar: React.FC<LeftBarProps> = ({ showMenu, setShowMenu }) => {
   const [showForm, setShowForm] = useState<boolean>(false);
-  const cardData = useSelector((state: RootState) => state.card);
+  const menuRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
 
-  const handleCards = () => {
-    setShowCards(true);
-  };
-
   const openTaskAddForm = () => {
+    setShowMenu(false);
     setShowForm(true);
   };
 
@@ -38,34 +33,46 @@ const LeftBar: React.FC<LeftBarProps> = ({ menuRef }) => {
     };
     dispatch(addCard(newCardData));
     setShowForm(false);
-    setShowCards(true);
   };
 
-  return (
-    <>
-      <div ref={menuRef} className={style.menu}>
-        <ul>
-          <li onClick={handleCards}>My Tasks</li>
-          <li>Due Assignments</li>
-          <li onClick={openTaskAddForm}>Add a task</li>
-        </ul>
-        <div className={style.avatar}>
-          <AvatarIcon />
-          <span onClick={() => dispatch(logout())}>Log Out</span>
-        </div>
-      </div>
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setShowMenu(false);
+      }
+    };
 
-      <div>
-        {showCards &&
-          cardData?.length > 0 &&
-          cardData.map((card) => <Card key={card.id} card={card} />)}
-      </div>
+    if (showMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showMenu, setShowMenu]);
+
+  return (
+    <div className={style.leftBarContainer}>
+      {showMenu && (
+        <div ref={menuRef} className={style.menu}>
+          <ul>
+            <li>My Tasks</li>
+            <li>Due Assignments</li>
+            <li onClick={openTaskAddForm}>Add a task</li>
+          </ul>
+          <div className={style.avatar}>
+            <AvatarIcon />
+            <span onClick={() => dispatch(logout())}>Log Out</span>
+          </div>
+        </div>
+      )}
+
       {showForm && (
-        <div className="formContainer">
+        <div className={style.formContainer}>
           <Form onSubmit={(event) => handleSubmit(event)} />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

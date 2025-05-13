@@ -1,27 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import style from './Navbar.module.css';
 import { MenuIcon, AvatarIcon, DarkMode } from '@/assets/icons';
 import { useTheme } from '@/contexts/ThemeContext/ThemeContext';
 import LeftBar from './LeftBar/LeftBar';
-const Navbar = () => {
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const [showMenu, setShowMenu] = useState<boolean>(false);
 
+const Navbar = () => {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
   const { toggleTheme } = useTheme();
 
   const toggleMenu = () => {
     setShowMenu((prev) => !prev);
   };
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setShowMenu(false);
-      }
-    };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
   return (
     <>
       <nav className={style.container_div}>
@@ -37,7 +27,7 @@ const Navbar = () => {
           </span>
         </div>
       </nav>
-      {showMenu && <LeftBar menuRef={menuRef} />}
+      <LeftBar showMenu={showMenu} setShowMenu={setShowMenu} />
     </>
   );
 };

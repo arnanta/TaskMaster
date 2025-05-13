@@ -20,6 +20,7 @@ function App() {
                 <Navbar />
                 <div className={style.container}>
                   <div className={style.top}>
+                    <h2 className={style.heading}>Personal Tasks</h2>
                     <PersonalTasks />
                   </div>
                   <div className={style.bottom}>
