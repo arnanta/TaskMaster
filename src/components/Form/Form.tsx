@@ -1,4 +1,3 @@
-// Form.tsx
 import React from 'react';
 import styles from './Form.module.css';
 
@@ -9,32 +8,33 @@ type FormProps = {
 const Form: React.FC<FormProps> = ({ onSubmit }) => {
   return (
     <form className={styles.form} onSubmit={onSubmit}>
-      <div className={styles.formGroupRadioInput}>
-        <label>Task Type: </label>
-
-        <div className={styles.radioInput}>
-          <input type="radio" id="work" name="taskType" value="Work" />
-          <label htmlFor="work">Work</label>
-        </div>
-
-        <div className={styles.radioInput}>
-          <input type="radio" id="personal" name="taskType" value="Personal" />
-          <label htmlFor="personal">Personal</label>
-        </div>
+      <div className={styles.formGroup}>
+        <label htmlFor="status">Task Status</label>
+        <select id="status" name="status" className={styles.select}>
+          <option value="New">New</option>
+          <option value="Active">Active</option>
+          <option value="Paused">Paused</option>
+          <option value="Completed">Completed</option>
+        </select>
       </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="priority">Priority</label>
+        <select id="priority" name="priority" className={styles.select}>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+
       <div className={styles.formGroup}>
         <label htmlFor="name">Task Name</label>
         <input id="name" type="text" name="name" placeholder="Enter the Task Name" />
       </div>
 
       <div className={styles.formGroup}>
-        <label htmlFor="email">Task Content</label>
+        <label htmlFor="content">Task Details</label>
         <textarea id="content" name="content" rows={4} placeholder="Enter your Task Details here" />
-      </div>
-
-      <div className={styles.formGroup}>
-        <label htmlFor="message">Comments</label>
-        <input id="comments" name="comments" placeholder="Comments..." />
       </div>
 
       <button type="submit" className={styles.submitButton}>

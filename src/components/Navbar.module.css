@@ -37,3 +37,26 @@
 .avatar {
   cursor: pointer;
 }
+.loginButton {
+  bottom: 30px;
+  right: 30px;
+  padding: 15px 25px;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 6px;
+}

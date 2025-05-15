@@ -1,43 +1,134 @@
+.leftBarContainer {
+  position: relative;
+}
+
 .menu {
   list-style: none;
-  padding: 1rem 0; /* Removed left/right padding */
+  padding: 0.5rem 0;
   margin: 0.5rem 0 0 0;
   background-color: #fff;
   color: #333;
   position: fixed;
-  top: 60px; /* Adjust based on navbar height */
+  top: 60px;
   left: 0;
   width: 220px;
-  height: calc(100vh - 60px); /* Full height below navbar */
+  height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Push avatar to bottom */
   border-radius: 0 4px 4px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 100;
+  justify-content: space-between;
+}
+
+.menu-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
+  overflow-y: auto;
+}
+
+.menu-footer {
+  padding: 0.5rem 1rem;
+  margin-top: auto;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fafafa;
 }
 
 .menu ul {
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .menu li {
   padding: 0.75rem 1rem;
   text-align: left;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .menu li:hover {
   background-color: #f0f0f0;
 }
 
-/* Optional: Avatar styling */
 .avatar {
-  padding: 1rem;
-  cursor: pointer;
-  text-align: left;
   display: flex;
-  gap: 4px;
   align-items: center;
+  gap: 8px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.avatar:hover {
+  background-color: #f0f0f0;
+}
+
+.taskFilterContainer {
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+.taskFilter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.taskFilter:hover {
+  background-color: #f0f0f0;
+}
+
+.chevronIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.taskFilterDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.25rem 0;
+}
+
+.taskFilterDropdown li {
+  padding: 0.75rem 1rem;
+}
+
+.taskFilterDropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+.formContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }

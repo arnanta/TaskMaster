@@ -1,51 +1,81 @@
 import React, { useState } from 'react';
 import style from './EditableCard.module.css';
 import { CardType } from './types/CardTypes';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/Store';
+import { useDispatch } from 'react-redux';
 import { editCard } from '@/Store/Card/CardSlice';
 
-type CardProps = {
+type editableCardProps = {
   card: CardType;
+  showEdit: boolean;
+  setShowEdit: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const EditableCard: React.FC<CardProps> = ({ card }) => {
+const EditableCard: React.FC<editableCardProps> = ({ card, showEdit, setShowEdit }) => {
   const dispatch = useDispatch();
   const [name, setName] = useState(card.name);
   const [content, setContent] = useState(card.content);
-  const [comments, setComments] = useState(card.comments);
-  const handleSubmit = (event: React.MouseEvent) => {
-    //! event won't be needed here most probably
-    //! Will dispatch the editAction here
-    //!Need to prepare the payload first for the edit action
-    const newCardData = {
-      id: card.id,
-      name: name,
-      content: content,
-      comments: comments,
-      taskType: 'Personal',
-    };
+  const [status, setStatus] = useState(card.status);
+  const [priority, setPriority] = useState(card.priority);
 
-    dispatch(editCard(newCardData));
+  const handleSubmit = (event: React.MouseEvent) => {
+    event.preventDefault();
+    dispatch(
+      editCard({
+        id: card.id,
+        name,
+        content,
+        status,
+        priority,
+      }),
+    );
+    setShowEdit(false);
   };
+
+  const onCancel = () => {
+    setShowEdit(false);
+  };
+
   return (
     <div className={style.container}>
-      <input value={name} onChange={(e) => setName(e.target.value)} />
+      <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Card title" />
+
       <textarea
-        id="content"
-        name="content"
-        rows={4}
         value={content}
         onChange={(e) => setContent(e.target.value)}
+        placeholder="Enter card content..."
       />
-      <input value={comments} onChange={(e) => setComments(e.target.value)} />
+
+      <div className={style.selectGroup}>
+        <label>
+          Status:
+          <select
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+            className={style.select}
+          >
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </label>
+
+        <label>
+          Priority:
+          <select
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+            className={style.select}
+          >
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </label>
+      </div>
+
       <div className={style.button}>
-        <button type="submit" onClick={(event) => handleSubmit(event)}>
-          Save Changes
-        </button>
-        <button type="submit" onClick={(event) => handleSubmit(event)}>
-          Cancel
-        </button>
+        <button onClick={onCancel}>Cancel</button>
+        <button onClick={handleSubmit}>Save Changes</button>
       </div>
     </div>
   );

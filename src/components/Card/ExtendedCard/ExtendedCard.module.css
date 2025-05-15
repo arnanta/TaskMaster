@@ -1,0 +1,127 @@
+.extendedCard {
+  width: 800px;
+  max-height: 80vh;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background-color: #fdfdfd;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid teal;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.extendedCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  color: #4b0082;
+  margin: 0;
+}
+
+.priority {
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  /* color: white; */
+}
+
+.High {
+  color: #e74c3c; /* red */
+}
+
+.Medium {
+  background-color: #f39c12; /* orange */
+}
+
+.Low {
+  background-color: #2ecc71; /* green */
+}
+
+.actions span {
+  margin-left: 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.actions span:hover {
+  transform: scale(1.1);
+}
+
+.details {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.detailItem {
+  margin-bottom: 1rem;
+}
+
+.detailItem strong {
+  color: #555;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.detailItem p {
+  margin: 0;
+  color: #333;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+/* Bottom Row */
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  background-color: #e6f7ff;
+  border: 1px solid #b3e0ff;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #005577;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Custom scrollbar */
+.details::-webkit-scrollbar {
+  width: 6px;
+}
+
+.details::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.details::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}

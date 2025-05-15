@@ -10,7 +10,7 @@ const WorkTasks = () => {
     <div>
       <h2>Work Tasks</h2>
       {workCards.map((card) => (
-        <Card key={card.id} card={card} />
+        <Card key={crypto.randomUUID()} card={card} />
       ))}
     </div>
   );

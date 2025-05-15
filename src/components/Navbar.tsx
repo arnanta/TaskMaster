@@ -20,11 +20,12 @@ const Navbar = () => {
             <MenuIcon />
           </div>
         </div>
-        <div className={style.avatar}>
-          <AvatarIcon />
-          <span onClick={toggleTheme}>
+        <span>Will have a Search Bar here</span>
+        <div className={style.buttonContainer}>
+          <button className={style.loginButton}>Login/SignUp</button>
+          {/* <span onClick={toggleTheme}>
             <DarkMode />
-          </span>
+          </span> */}
         </div>
       </nav>
       <LeftBar showMenu={showMenu} setShowMenu={setShowMenu} />

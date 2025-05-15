@@ -1,0 +1,55 @@
+.tasksPage {
+  padding: 2rem;
+  margin: 0 auto;
+  background: linear-gradient(to right, #f0f4f8, teal);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2933;
+}
+
+.tasksPage h1 {
+  font-size: 2.5rem;
+  color: #102a43;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #bcccdc;
+  padding-bottom: 0.5rem;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Optional: card styles if each task is in a div */
+.taskCard {
+  background-color: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.taskCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.08);
+}
+
+.noCards {
+  background-color: #ffffff;
+  border: 2px dashed #bcccdc;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  color: #486581;
+  font-size: 1.25rem;
+  font-style: italic;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.noCards:hover {
+  background-color: #f0f4f8;
+}
