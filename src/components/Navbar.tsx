@@ -20,7 +20,6 @@ const Navbar = () => {
             <MenuIcon />
           </div>
         </div>
-        <span>Will have a Search Bar here</span>
         <div className={style.buttonContainer}>
           <button className={style.loginButton}>Login/SignUp</button>
           {/* <span onClick={toggleTheme}>

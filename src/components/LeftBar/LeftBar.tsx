@@ -71,6 +71,9 @@ const LeftBar: React.FC<LeftBarProps> = ({ showMenu, setShowMenu }) => {
     navigate(route);
   };
 
+  const navigateToDashboard = () => {
+    navigate('/dashboard');
+  };
   return (
     <>
       {' '}
@@ -94,7 +97,7 @@ const LeftBar: React.FC<LeftBarProps> = ({ showMenu, setShowMenu }) => {
             </div>
 
             <ul>
-              <li onClick={navigateToMyTasks}>Dashboard</li>
+              <li onClick={navigateToDashboard}>Dashboard</li>
               <li onClick={openTaskAddForm}>Add a task</li>
               <li>Calendar</li>
               <li>Settings</li>

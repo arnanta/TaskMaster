@@ -5,6 +5,7 @@
   flex-direction: row;
   border-radius: 12px;
   height: 100vh;
+  background: linear-gradient(to right, #ff758a, #ff7eb1);
 }
 
 .statusContainer {
@@ -21,7 +22,7 @@
   overflow: hidden;
   height: 400px;
   /* top: 10%; */
-  left: 20%;
+  left: 25%;
   position: absolute;
 }
 
@@ -96,7 +97,7 @@
   border-left: 6px solid #ff5252; /* Red accent */
   position: absolute;
   top: 55%; /* Position below status container */
-  left: 20%;
+  left: 25%;
   height: 400px;
 }
 

@@ -1,53 +1,163 @@
+/* Tasks.module.css */
 .container {
   width: 100vw;
   height: 100vh;
-  border: 3px solid teal;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  padding: 2rem;
+  box-sizing: border-box;
   overflow: hidden;
-  position: absolute;
+  position: relative;
+}
+
+.header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(44, 62, 80, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.header::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 24px;
+  background-color: #3498db;
+  margin-right: 12px;
+  border-radius: 4px;
 }
 
 .cardContainer {
-  top: calc(100% - 900px);
-  border: 4px solid purple;
-  position: relative;
-  bottom: 100px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: calc(100% - 12px);
-  height: 90%;
-  box-sizing: border-box;
-  margin-left: 6px;
   display: flex;
-  flex-direction: row;
-  gap: 6px;
+  height: calc(100% - 80px);
+  gap: 1.5rem;
+  background: transparent;
+  border-radius: 16px;
+}
+
+.cardNameSection {
+  flex: 1;
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cardNameSection h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #ecf0f1;
 }
 
 .cardDetailsSection {
   flex: 2;
-  width: 800px;
-  height: 100%;
-  border: 2px solid black;
-  border-radius: 12px;
-}
-
-.cardNameSection {
-  border-radius: 12px;
-  width: 500px;
-  height: 100%;
-  flex: 1;
-  border: 2px solid black;
-  gap: 6px;
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+}
+
+.cardDetailsSection h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #ecf0f1;
 }
 
 .cardStack {
-  width: 350px;
-  height: 80px;
-  position: relative;
+  background: white;
   border-radius: 12px;
-  background-color: teal;
-  left: 20px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  border-left: 4px solid #3498db;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardStack:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #2980b9;
+}
+
+.cardStack.active {
+  background-color: #f8f9fa;
+  border-left: 4px solid #2ecc71;
+}
+
+/* Status indicators */
+.statusIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-new {
+  background-color: #f39c12;
+}
+
+.status-active {
+  background-color: #2ecc71;
+}
+
+.status-completed {
+  background-color: #3498db;
+}
+
+/* Priority tags */
+.priorityTag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority-low {
+  background-color: #d5f5e3;
+  color: #27ae60;
+}
+
+.priority-medium {
+  background-color: #fef9e7;
+  color: #f39c12;
+}
+
+.priority-high {
+  background-color: #fadbd8;
+  color: #e74c3c;
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #95a5a6;
+  text-align: center;
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
 }
