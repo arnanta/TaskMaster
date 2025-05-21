@@ -6,6 +6,9 @@
   align-items: center;
   padding: 0.75rem 1.5rem;
   color: white;
+  border-bottom: 0;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+
   /* Remove position: relative */
 }
 
