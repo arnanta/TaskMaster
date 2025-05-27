@@ -35,6 +35,7 @@ const LeftBar: React.FC<LeftBarProps> = ({ showMenu, setShowMenu }) => {
       priority: formData.get('priority') as string,
     };
     dispatch(addCard(newCardData));
+    window.alert('Yayy! New Task added');
     setShowForm(false);
   };
 
@@ -114,8 +115,10 @@ const LeftBar: React.FC<LeftBarProps> = ({ showMenu, setShowMenu }) => {
         )}
       </div>
       {showForm && (
-        <div className={style.formContainer}>
-          <Form onSubmit={(event) => handleSubmit(event)} />
+        <div className={style.overlay} onClick={() => setShowForm(false)}>
+          <div className={style.formWrapper} onClick={(e) => e.stopPropagation()}>
+            <Form onSubmit={(event) => handleSubmit(event)} />
+          </div>
         </div>
       )}
     </>

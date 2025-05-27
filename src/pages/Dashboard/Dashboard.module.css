@@ -5,7 +5,7 @@
   flex-direction: row;
   border-radius: 12px;
   height: 100vh;
-  background: linear-gradient(to right, #ff758a, #ff7eb1);
+  background: linear-gradient(to right, #ff758a4f, #ff7eb202);
 }
 
 .statusContainer {
