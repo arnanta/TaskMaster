@@ -45,8 +45,6 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   object-fit: contain;
 }
-
-/* Rest of your existing styles remain the same */
 .footer {
   position: relative;
   z-index: 1;
@@ -74,6 +72,7 @@
   margin-bottom: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
+  position: relative;
 }
 
 .subtitle {
@@ -81,6 +80,7 @@
   margin-bottom: 3rem;
   line-height: 1.6;
   opacity: 0.9;
+  z-index: 10;
 }
 
 .addButton {
@@ -104,4 +104,73 @@
   background-color: #45a049;
   transform: translateY(-3px);
   box-shadow: 0 9px 18px rgba(0, 0, 0, 0.35);
+}
+
+.userWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.userText {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.chevronWrapper {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+  position: absolute;
+  top: 36px;
+  z-index: 10;
+}
+
+.chevronIcon {
+  color: #ff5252;
+  transition: all 0.2s ease;
+  animation: bounce 2s infinite;
+}
+
+.chevronIcon:hover {
+  color: #ff0000;
+  transform: translateY(-2px) translateX(-50%);
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(5px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(3px) translateX(-50%);
+  }
+}
+
+.popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  display: none;
+  z-index: 99999 !important;
+  font-size: 16px;
+  width: 300px;
+}
+
+.chevronWrapper:hover .popup {
+  display: block;
+  z-index: 9999 !important;
 }

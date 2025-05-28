@@ -126,3 +126,42 @@
   color: #333;
   margin-bottom: 1.5rem;
 }
+
+.emptyDashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  color: #f0f0f0;
+  text-align: center;
+}
+
+.emptyContent {
+  max-width: 500px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.emptyImage {
+  width: 250px;
+  height: auto;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+.emptyDashboard h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.emptyDashboard p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  line-height: 1.6;
+}

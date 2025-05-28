@@ -4,6 +4,7 @@ import style from './TasksView.module.css';
 import { useLocation } from 'react-router-dom';
 import { RootState } from '@/Store';
 import ExtendedCard from '@/components/Card/ExtendedCard/ExtendedCard';
+import blankImage from '../../assets/articles_blank_main.jpg';
 const TasksPage: React.FC = () => {
   const location = useLocation();
   const cards = useSelector((state: RootState) => state.card);
@@ -27,7 +28,7 @@ const TasksPage: React.FC = () => {
     <>
       <div className={style.tasksPage}>
         <h1>{getTitle()}</h1>
-        {filteredCards.length > 0 ? ( // Changed this condition
+        {filteredCards.length > 0 ? (
           <div className={style.cardList}>
             {filteredCards.map((card) => (
               <ExtendedCard key={card.id} card={card} />
@@ -36,7 +37,7 @@ const TasksPage: React.FC = () => {
         ) : (
           <div className={style.noCards}>
             {' '}
-            <img src="../assets/articles_blank_main.jpg" alt="No tasks" />
+            <img src={blankImage} alt="No tasks" />
             <h3>Oops! No {getTitle().toLowerCase()} found</h3>
             <p>Create a new task to get started</p>
           </div>

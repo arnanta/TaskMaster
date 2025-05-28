@@ -1,4 +1,3 @@
-import React from 'react';
 import style from './Dashboard.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/Store';
@@ -28,6 +27,21 @@ const Dashboard = () => {
   const mediumPercentage = cardlength > 0 ? (mediumPriorityCards.length / cardlength) * 100 : 0;
   const highPercentage = cardlength > 0 ? (highPriorityCards.length / cardlength) * 100 : 0;
 
+  if (cardlength === 0) {
+    return (
+      <div className={style.emptyDashboard}>
+        <div className={style.emptyContent}>
+          <img
+            src="../assets/articles_blank_main.jpg"
+            alt="No tasks"
+            className={style.emptyImage}
+          />
+          <h2>Your Dashboard is Empty</h2>
+          <p>Create your first task to see analytics and statistics</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={style.container}>
       <div className={style.statusContainer}>
