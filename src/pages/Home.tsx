@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import styles from './Home.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../contexts/FormContext/FormContext';
-import taskImage from '../../public/assets/taskImage.jpg';
+import taskImage from '@assets/taskImage.jpg';
 
 const Home = () => {
   const navigate = useNavigate();

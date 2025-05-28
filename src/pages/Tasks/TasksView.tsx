@@ -36,7 +36,7 @@ const TasksPage: React.FC = () => {
         ) : (
           <div className={style.noCards}>
             {' '}
-            <img src="./../../public/assets/articles_blank_main.jpg" alt="No tasks" />
+            <img src="../assets/articles_blank_main.jpg" alt="No tasks" />
             <h3>Oops! No {getTitle().toLowerCase()} found</h3>
             <p>Create a new task to get started</p>
           </div>
