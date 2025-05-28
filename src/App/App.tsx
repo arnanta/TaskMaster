@@ -15,7 +15,7 @@ import SettingsPage from '@/pages/Settings/SettingsPage';
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="/TaskMaster">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route
