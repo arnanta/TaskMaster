@@ -69,8 +69,9 @@ const ExtendedCard: React.FC<ExtendedCardProps> = ({ card }) => {
             id: card.id,
             name: card.name,
             content: card.content,
-            status: card.status, // Add this
-            priority: card.priority, // Add this
+            status: card.status,
+            priority: card.priority,
+            dueDate: card.dueDate,
           }}
           showEdit={showEdit}
           setShowEdit={setShowEdit}

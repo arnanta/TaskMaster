@@ -33,12 +33,7 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="dueDate">Due Date</label>
-        <input
-          id="dueDate"
-          type="date"
-          name="dueDate"
-          className={styles.dateInput} // Optional: Add this class for custom styling
-        />
+        <input id="dueDate" type="date" name="dueDate" className={styles.dateInput} />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="content">Task Details</label>

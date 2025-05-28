@@ -17,6 +17,7 @@ const FormActionWrapper: React.FC = () => {
       content: formData.get('content') as string,
       status: formData.get('status') as string,
       priority: formData.get('priority') as string,
+      dueDate: formData.get('dueDate'),
     };
     dispatch(addCard(newCardData));
     window.alert('Yayy! New Task added');

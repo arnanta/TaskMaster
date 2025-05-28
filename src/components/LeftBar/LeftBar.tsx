@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import style from './Leftbar.module.css';
 import { useDispatch } from 'react-redux';
-import { AvatarIcon, ChevronDownIcon } from '@/assets/icons';
+import { AvatarIcon, ChevronDownIcon, ChevronUpIcon } from '@/assets/icons';
 import { logout } from '@/Store/Auth/AuthSlice';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../contexts/FormContext/FormContext';
@@ -74,9 +74,7 @@ const LeftBar: React.FC<LeftBarProps> = ({ showMenu, setShowMenu }) => {
           <div className={style.taskFilterContainer}>
             <div className={style.taskFilter} onClick={toggleTaskFilter}>
               <span>My Tasks</span>
-              <ChevronDownIcon
-                className={`${style.chevronIcon} ${showTaskFilter ? style.rotate : ''}`}
-              />
+              {!showTaskFilter ? <ChevronDownIcon /> : <ChevronUpIcon />}
             </div>
             {showTaskFilter && (
               <ul className={style.taskFilterDropdown}>
@@ -92,7 +90,6 @@ const LeftBar: React.FC<LeftBarProps> = ({ showMenu, setShowMenu }) => {
             <li onClick={openTaskAddForm}>Add a task</li>
             <li onClick={navigateToSettingsPage}>Settings</li>
             <li onClick={navigateToContactPage}>Contact Us</li>
-            <li>Due Tasks</li>
           </ul>
 
           <div className={style.menuFooter}>

@@ -4,7 +4,6 @@ import style from './TasksView.module.css';
 import { useLocation } from 'react-router-dom';
 import { RootState } from '@/Store';
 import ExtendedCard from '@/components/Card/ExtendedCard/ExtendedCard';
-// import '../../../public/assets/articles_blank_main.jpg'
 const TasksPage: React.FC = () => {
   const location = useLocation();
   const cards = useSelector((state: RootState) => state.card);

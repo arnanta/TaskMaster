@@ -16,7 +16,7 @@ const EditableCard: React.FC<editableCardProps> = ({ card, showEdit, setShowEdit
   const [content, setContent] = useState(card.content);
   const [status, setStatus] = useState(card.status);
   const [priority, setPriority] = useState(card.priority);
-
+  const [dueDate, setDueDate] = useState(card?.dueDate);
   const handleSubmit = (event: React.MouseEvent) => {
     event.preventDefault();
     dispatch(
@@ -26,6 +26,7 @@ const EditableCard: React.FC<editableCardProps> = ({ card, showEdit, setShowEdit
         content,
         status,
         priority,
+        dueDate,
       }),
     );
     setShowEdit(false);
@@ -38,7 +39,13 @@ const EditableCard: React.FC<editableCardProps> = ({ card, showEdit, setShowEdit
   return (
     <div className={style.container}>
       <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Card title" />
-
+      <input
+        id="dueDate"
+        type="date"
+        name="dueDate"
+        className={style.dateInput}
+        onChange={(e) => setDueDate(e.target.value)}
+      />
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
@@ -53,9 +60,10 @@ const EditableCard: React.FC<editableCardProps> = ({ card, showEdit, setShowEdit
             onChange={(e) => setStatus(e.target.value)}
             className={style.select}
           >
-            <option value="To Do">To Do</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Done">Done</option>
+            <option value="New">New</option>
+            <option value="Active">Active</option>
+            <option value="Paused">Paused</option>
+            <option value="Completed">Completed</option>
           </select>
         </label>
 
