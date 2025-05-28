@@ -9,30 +9,38 @@ import Home from '@/pages/Home';
 import TasksPage from '@/pages/Tasks/TasksView';
 import Dashboard from '@/pages/Dashboard/Dashboard';
 import SignUp from '@/components/Auth/SignUp/SignUp';
+import FormActionWrapper from '@/Actions/FormAction';
+import ContactUsPage from '@/pages/ContactUs/ContactUsPage';
+import SettingsPage from '@/pages/Settings/SettingsPage';
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <>
-                <Navbar />
-                <Home />
-              </>
-            </PrivateRoute>
-          }
-        />
-        <Route path="*" element={<Navigate to="/" />} />
-        <Route path="/my-tasks" element={<Tasks />} />
-        <Route path="/my-tasks/active" element={<TasksPage />} />
-        <Route path="/my-tasks/completed" element={<TasksPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/sign-up" element={<SignUp />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <>
+                  <Navbar />
+                  <FormActionWrapper />
+                  <Home />
+                </>
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/my-tasks" element={<Tasks />} />
+          <Route path="/my-tasks/active" element={<TasksPage />} />
+          <Route path="/my-tasks/completed" element={<TasksPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

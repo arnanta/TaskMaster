@@ -68,3 +68,14 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+
+.footer {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding: 20px;
+  color: #ccc;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
