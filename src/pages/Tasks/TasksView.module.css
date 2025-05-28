@@ -1,7 +1,11 @@
 .tasksPage {
   padding: 2rem;
   margin: 0 auto;
-   background: linear-gradient(to right, rgba(0, 0, 0, 0.418), rgba(0, 0, 0, 0.247)); /* dark background */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.418),
+    rgba(0, 0, 0, 0.247)
+  ); /* dark background */
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #1f2933;
