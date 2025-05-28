@@ -8,7 +8,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
 .formGroup {
   display: flex;
   flex-direction: column;
@@ -61,4 +60,11 @@ textarea:focus {
   display: flex;
   align-items: baseline;
   gap: 4px;
+}
+
+.dateInput {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }

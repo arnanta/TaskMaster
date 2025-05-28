@@ -50,11 +50,11 @@
 }
 
 .Medium {
-  background-color: #f39c12; /* orange */
+  color: #f39c12; /* orange */
 }
 
 .Low {
-  background-color: #2ecc71; /* green */
+  color: #2ecc71; /* green */
 }
 
 .actions span {

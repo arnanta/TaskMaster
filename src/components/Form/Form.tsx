@@ -31,7 +31,15 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
         <label htmlFor="name">Task Name</label>
         <input id="name" type="text" name="name" placeholder="Enter the Task Name" />
       </div>
-
+      <div className={styles.formGroup}>
+        <label htmlFor="dueDate">Due Date</label>
+        <input
+          id="dueDate"
+          type="date"
+          name="dueDate"
+          className={styles.dateInput} // Optional: Add this class for custom styling
+        />
+      </div>
       <div className={styles.formGroup}>
         <label htmlFor="content">Task Details</label>
         <textarea id="content" name="content" rows={4} placeholder="Enter your Task Details here" />

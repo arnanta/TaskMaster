@@ -92,6 +92,7 @@ const LeftBar: React.FC<LeftBarProps> = ({ showMenu, setShowMenu }) => {
             <li onClick={openTaskAddForm}>Add a task</li>
             <li onClick={navigateToSettingsPage}>Settings</li>
             <li onClick={navigateToContactPage}>Contact Us</li>
+            <li>Due Tasks</li>
           </ul>
 
           <div className={style.menuFooter}>
